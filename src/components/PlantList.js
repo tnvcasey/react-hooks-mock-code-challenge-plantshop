@@ -1,7 +1,7 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList( {plants, filteredPlants} ) {
+function PlantList( {filteredPlants} ) {
   return (
     <ul className="cards">
       {filteredPlants.map((plant) => (

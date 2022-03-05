@@ -13,15 +13,22 @@ function PlantPage() {
       .then(plants => setPlants(plants))
   }, [])
 
+  
+
   const filteredPlants = plants.filter(plant => plant.name.toLowerCase().includes(search.toLowerCase()))
 
   function filterSearch(newSearch){
     setSearch(newSearch)
   }
+
+  function handleAddPlant(planty){
+    const updatedPlants= [...plants, planty]
+    setPlants(updatedPlants)
+  }
   
   return (
     <main>
-      <NewPlantForm />
+      <NewPlantForm handleAddPlant={handleAddPlant}/>
       <Search search={search} filteredSearch={filterSearch} />
       <PlantList filteredPlants={filteredPlants} plants={plants} setPlants={setPlants} />
     </main>
